@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "lunvisuals",
+  "version": "${version}",
+  "name": "LunVisuals",
+  "description": "A minimalist visual client foundation for Minecraft 1.21.11.",
+  "environment": "client",
+  "entrypoints": { "client": [ "dev.lunvisuals.LunVisualsClient" ] },
+  "depends": {
+    "fabricloader": ">=0.18.4",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
