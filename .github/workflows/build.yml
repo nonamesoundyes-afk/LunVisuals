@@ -15,14 +15,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK 17
+      # Оновлюємо версію Java з 17 на 21
+      - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: '17' # Якщо ваш проєкт написаний під Java 8, 11 або 21 — змініть цю цифру
+          java-version: '21' 
           distribution: 'temurin'
           cache: 'gradle'
 
-      # Використовуємо встановлений у системі gradle замість локального скрипта ./gradlew
+      # Компілюємо проєкт за допомогою глобального gradle
       - name: Build with Gradle
         run: gradle build -x test
 
