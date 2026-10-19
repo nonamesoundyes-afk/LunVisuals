@@ -22,12 +22,11 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
-      # Додаємо прапорець, який дозволяє плагінам Fabric інжектувати репозиторії
+      # Запускаємо чисту збірку за допомогою глобального gradle
       - name: Build with Gradle
-        run: gradle build -x test -Dorg.gradle.dependency.verification=off
-        env:
-          GRADLE_OPTS: "-Dorg.gradle.dependency.verification=off"
+        run: gradle build -x test
 
+      # Завантажуємо згенерований JAR-файл в артефакти
       - name: Upload JAR Artifact
         uses: actions/upload-artifact@v4
         with:
