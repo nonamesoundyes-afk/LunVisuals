@@ -18,15 +18,13 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
-          java-version: '17' # Якщо у вас інша версія Java (напр. 8, 11, 21), змініть цю цифру
+          java-version: '17' # Якщо ваш проєкт написаний під Java 8, 11 або 21 — змініть цю цифру
           distribution: 'temurin'
           cache: 'gradle'
 
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
-
+      # Використовуємо встановлений у системі gradle замість локального скрипта ./gradlew
       - name: Build with Gradle
-        run: ./gradlew build -x test  # -x test пропускає тести для прискорення збірки
+        run: gradle build -x test
 
       - name: Upload JAR Artifact
         uses: actions/upload-artifact@v4
